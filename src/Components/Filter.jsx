@@ -42,7 +42,7 @@ return()=>{
 <div className='w-full h-1/5  flex justify-center items-center gap-1'>
   <input type="text" className='bg-white w-3xl h-11 rounded-lg max-md:w-xl max-sm:w-80'placeholder='
   Ara' onChange={(e)=>{setText(e.currentTarget.value)}}/>
-  <button className='bg-black text-white p-1.5 rounded-lg border border-white w-40 h-11 cursor-pointer hover:bg-gray-900 '>Ara</button>
+  <button className='bg-blue-500 text-white p-1.5 rounded-lg border border-white w-40 h-11 cursor-pointer hover:bg-gray-900 '>Ara</button>
 </div>
 {
   findedVehicles && findedVehicles.map((vehicle)=>(<div className='w-full bg-white mt-3 flex relative rounded-md  cursor-pointer' onClick={()=>{
