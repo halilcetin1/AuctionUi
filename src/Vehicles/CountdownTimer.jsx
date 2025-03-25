@@ -43,7 +43,7 @@ function CountdownTimer({endTime}) {
         return () => clearInterval(interval); 
     }, [time.endTime]);
 
-    return  <p className="w-16 h-full">{countTime}</p>;
+    return  <p className="w-16 j h-full">{countTime}</p>;
 }
 
 export default CountdownTimer;
