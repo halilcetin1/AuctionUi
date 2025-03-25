@@ -6,7 +6,7 @@ import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } 
 import { toast } from "react-toastify"
 import Loading from "../Components/Loading"
 
-export default function DeleteVehicles() {
+export default function DeleteVehicle() {
      const {vehicles}=useSelector((state)=>state.vehicle)
      const [openDialog,setOpenDialog]=useState(false)
      const [vehicleId,setvehcileId]=useState()

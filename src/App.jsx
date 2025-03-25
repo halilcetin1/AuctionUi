@@ -18,7 +18,7 @@ import EmailConfirmed from './Components/EmailConfirmed'
 import Home from './Home/Home'
 import PanelHome from './Panel/PanelHome'
 import AddCar from './Panel/AddCar'
-import DeleteVehicle from './Panel/DeleteVehicles'
+import DeleteVehicle from './Panel/DeleteVehicle'
 
 
 function App() {
