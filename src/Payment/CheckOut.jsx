@@ -76,7 +76,7 @@ navigate("/confirmedpay",{state:{payresponse}})
     <form onSubmit={handleSubmit}>
      
       <PaymentElement  />
-      <button disabled={!stripe}>Submit</button>
+      <button disabled={!stripe} className='text-white bg-blue-500 p-2 rounded-md'>Submit</button>
     </form>
   )
 };
