@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+body{
+     background-color: #f4f4f4; 
+     padding: 0;
+     margin: 0;
+    }
+   #countertimer-container{
+      background-color: red;
+      color: #f4f4f4;
+      padding: 10px;
+  
+      
+   }
