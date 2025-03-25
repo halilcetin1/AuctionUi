@@ -18,7 +18,7 @@ import EmailConfirmed from './Components/EmailConfirmed'
 import Home from './Home/Home'
 import PanelHome from './Panel/PanelHome'
 import AddCar from './Panel/AddCar'
-import DeleteVehicles from './Panel/DeleteVehicles'
+import DeleteVehicle from './Panel/DeleteVehicles'
 
 
 function App() {
@@ -52,7 +52,7 @@ function App() {
         <Route path='/confirm-email' element={<EmailConfirmed />}></Route>
         <Route path='/panel' element={<PanelHome />}></Route>
         <Route path='/panel/addcar' element={<AddCar />}></Route>
-        <Route path='/panel/deletevehicles' element={<DeleteVehicles />}></Route>
+        <Route path='/panel/deletevehicles' element={<DeleteVehicle />}></Route>
 
       </Routes>
       <ToastContainer />
