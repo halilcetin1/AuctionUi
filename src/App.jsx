@@ -23,13 +23,7 @@ import DeleteVehicle from './Panel/DeleteVehicle'
 
 function App() {
 
-  // const dispat=useDispatch()
-  // useEffect(()=>{
 
-  // dispat(checkPaymentStatus({vehicleID:28,userId:"c0c4b041-9c27-4c83-9394-3d973538b636"}))
-  // // dispat(addPayHistory())
-
-  // },[])
 
 
 
@@ -37,7 +31,7 @@ function App() {
     <>
 
 
-<div className='w-full bg-amber-200'>h</div>
+<div className='w-full bg-amber-200 flex items-center justify-center p-1 font-extrabold text-2xl'>Hoşgeldiniz</div>
       <Header />
 
       <Routes>

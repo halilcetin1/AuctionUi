@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 
 import { toast } from 'react-toastify';
 import { AddVehicle } from '../Redux/Slices/vehcileSlice';
+import Loading from '../Components/Loading';
 export default function AddCar() {
      const [isActive, setIsActive] = useState(false);
      const [brandAndModel, setBranAndModel] = useState("");
@@ -80,7 +81,7 @@ export default function AddCar() {
 
 
 
-
+setIsLoading(true);
           dispatch(AddVehicle(model)).unwrap().then(() => {
                setIsLoading(false)
                toast.success("Araç başarıyla eklendi.")
@@ -90,6 +91,12 @@ export default function AddCar() {
           })
 
      }
+     
+
+if(isLoading){
+     return (<Loading/>)
+}
+
      return (
           <form className='flex  flex-col items-center justify-center w-full h-full' onSubmit={handleForm}>
                <p> Araç Ekle </p>

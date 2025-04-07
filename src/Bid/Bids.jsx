@@ -13,8 +13,8 @@ import { checkPaymentStatus } from "../Redux/Slices/paymentSlice";
 import { jwtDecode } from "jwt-decode";
 import * as signalR from '@microsoft/signalr'
 import { toast } from "react-toastify";
-const baseUrl="http://localhost:8080/getbids";
-//const baseUrl="https://api-h692.onrender.com/getbids";
+//const baseUrl="http://localhost:8080/getbids";
+const baseUrl="https://api-h692.onrender.com/getbids";
 
 
 function Bids(props) {
