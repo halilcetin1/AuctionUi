@@ -16,6 +16,9 @@ import { FaRegCircleCheck } from "react-icons/fa6";
      
 
      const date=new Date(bid.bidDate)
+console.log( "local saat",    date.toLocaleDateString());
+
+     
      
   return (
     <div className="p-3">
@@ -24,9 +27,7 @@ import { FaRegCircleCheck } from "react-icons/fa6";
 <p className="flex items-center gap-2 font-bold text-2xl">Aktif <FaRegCircleCheck className="text-green-500"/></p>
 <p className="font-bold text-2xl">{convert} TL</p>
 
-{
-  userId==bid.userId ? <p>düzelt</p>:""
-}
+
 
 
 <div className="text-gray-500 absolute right-1 top-0">

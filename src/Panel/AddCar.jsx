@@ -61,7 +61,7 @@ export default function AddCar() {
           formData.append("AuctionPrice", auctionPrice.toString())
           formData.append("AdditionalInformation", additionalInformation)
         
-          formData.append("EndTime",endTime.toString())
+          formData.append("EndTime",endTime.toISOString())
           formData.append("IsActive", isActive.toString())
           formData.append("SellerId", nameid)
           images?.forEach((image) => {
@@ -191,7 +191,7 @@ if(isLoading){
                     }
                </div>
                <div className="w-1/3 max-sm:w-2/3 mb-10">
-                    <button type='submit' className='p-1.5 w-full bg-blue-600 text-white cursor-pointer rounded-md text-center text-2xl flex items-center justify-center gap-1' disabled={isLoading} >
+                    <button type='submit' className='mt-2.5 p-1.5 w-full bg-blue-600 text-white cursor-pointer rounded-md text-center text-2xl flex items-center justify-center gap-1' disabled={isLoading} >
                          {isLoading ? "Kaydediliyor..." : "Kaydet"}
                     </button>
                </div>
