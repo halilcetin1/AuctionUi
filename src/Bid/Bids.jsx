@@ -13,7 +13,8 @@ import { checkPaymentStatus } from "../Redux/Slices/paymentSlice";
 import { jwtDecode } from "jwt-decode";
 import * as signalR from '@microsoft/signalr'
 import { toast } from "react-toastify";
-
+const baseUrl="http://localhost:8080/getbids";
+//const baseUrl="https://api-h692.onrender.com/getbids";
 
 
 function Bids(props) {
@@ -67,7 +68,7 @@ setUserId(nameid);
 
 
 const startSignalR=()=>{
-  connection.current= new signalR.HubConnectionBuilder().withUrl("https://api-h692.onrender.com/getbids").withAutomaticReconnect().build();
+  connection.current= new signalR.HubConnectionBuilder().withUrl(baseUrl).withAutomaticReconnect().build();
 
   connection.current.on("GetData",(e)=>{
    setData(e)

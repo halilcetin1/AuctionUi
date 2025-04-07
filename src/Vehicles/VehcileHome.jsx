@@ -19,7 +19,8 @@ setError("Lütfen internet bağlantınızı kontrol ediniz !")
 }
 
   dispatch(getAllVehicles()).unwrap().then((e)=>{
-    console.log(e);
+ console.log(e);
+ 
     
    setData(e)
     
