@@ -46,7 +46,7 @@ useEffect(()=>{
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-lg">
           <Link to="/" className="flex items-center">
             <span className="self-center text-xl font-semibold whitespace-nowrap ">
-              Logo
+              AuctionApp
             </span>
           </Link>
 
@@ -107,13 +107,28 @@ useEffect(()=>{
         <button
                       className="mt-4 md:mt-0 rounded-full bg-blue-500 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg hover:bg-white hover:text-blue-500 hover:border hover:border-blue-500 cursor-pointer"
                       type="button"
-                   onClick={()=>navigate("/register")} >
+                   onClick={()=> {
+                    setNav(!nav);
+                    navigate("/register")
+
+                   }
+                   
+                  } >
                   Kayıt ol
                     </button>
                     <button
                       className="mt-4 md:mt-0 rounded-full cursor-pointer bg-white  py-2 px-4 border border-blue-500 text-center text-sm text-blue-500 transition-all shadow-md hover:shadow-lg hover:bg-blue-500 hover:text-white"
                       type="button"
-                    onClick={()=>navigate("/login")}>
+                    onClick={()=>{
+
+                      setNav(!nav);
+                      navigate("/login")
+
+
+                    }
+                     
+                      
+                    }>
                    Giriş yap
                     </button>
         
@@ -124,6 +139,7 @@ useEffect(()=>{
            {
             role =="Adminstrator" ?  <p className='text-blue-500 cursor-pointer' onClick={()=>{
               navigate("/panel")
+              setNav(!nav);
             }}>Panel</p>:""
            }
         </div>: ""
