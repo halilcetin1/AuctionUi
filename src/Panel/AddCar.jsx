@@ -61,7 +61,7 @@ export default function AddCar() {
           formData.append("AuctionPrice", auctionPrice.toString())
           formData.append("AdditionalInformation", additionalInformation)
         
-          formData.append("EndTime",endTime.toISOString())
+          formData.append("EndTime",new Date(endTime).toISOString())
           formData.append("IsActive", isActive.toString())
           formData.append("SellerId", nameid)
           images?.forEach((image) => {
@@ -163,7 +163,11 @@ if(isLoading){
 
                <div className=" w-1/3 max-sm:w-2/3">
                     <label htmlFor="">Bitiş Tarihi</label>
-                    <input type='datetime-local' required onChange={(e) => { setEndTime(e.currentTarget.value) }} className="  outline-0  block p-2.5 w-full text-sm  bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500dark:placeholder-gray-400 dark:focus:ring-blue-500   dark:focus:border-blue-300 " />
+                    <input type='datetime-local' required onChange={(e) => { setEndTime(e.currentTarget.value)
+
+
+                         
+                     }} className="  outline-0  block p-2.5 w-full text-sm  bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500dark:placeholder-gray-400 dark:focus:ring-blue-500   dark:focus:border-blue-300 " />
                </div>
                <div className=" w-1/3 max-sm:w-2/3 mt-2">
                     <label className="inline-flex items-center mb-5 cursor-pointer">

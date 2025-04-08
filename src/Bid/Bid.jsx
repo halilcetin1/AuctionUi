@@ -16,7 +16,7 @@ import { FaRegCircleCheck } from "react-icons/fa6";
      
 
      const date=new Date(bid.bidDate)
-console.log( "local saat",    date.toLocaleDateString());
+
 
      
      

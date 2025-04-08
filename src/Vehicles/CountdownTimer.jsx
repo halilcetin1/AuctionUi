@@ -7,10 +7,15 @@ function CountdownTimer({endTime}) {
 
     useEffect(() => {
         const hesaplaKalanSüre = () => {
-            const endTime = new Date(time).getTime();
+        
+            const endTime = new Date(time)
+            const utcToLocal = new Date(endTime.toLocaleString("en-US", { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone })).getTime();
+
+           
+            
             const now = new Date().getTime(); 
 
-            const farkMs = endTime - now; 
+            const farkMs = utcToLocal - now; 
             
             if (farkMs <= 0) {
                 setCountTime("Süre doldu!");
@@ -41,7 +46,7 @@ function CountdownTimer({endTime}) {
         const interval = setInterval(hesaplaKalanSüre, 1000); //
 
         return () => clearInterval(interval); 
-    }, [time.endTime]);
+    }, [time]);
 
     return  <p className="w-16 j h-full">{countTime}</p>;
 }
