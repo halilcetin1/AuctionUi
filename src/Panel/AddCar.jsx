@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { AddVehicle } from '../Redux/Slices/vehcileSlice';
 import Loading from '../Components/Loading';
+import { useNavigate } from 'react-router-dom';
 export default function AddCar() {
      const [isActive, setIsActive] = useState(false);
      const [brandAndModel, setBranAndModel] = useState("");
@@ -25,6 +26,8 @@ export default function AddCar() {
      const [imagePreviews, setImagePreviews] = useState()
 
      const dispatch = useDispatch()
+     const navigate=useNavigate();
+
      const handleFileChange = (e) => {
           if (e.target.files) {
                const files = Array.from(e.target.files);
@@ -85,6 +88,7 @@ setIsLoading(true);
           dispatch(AddVehicle(model)).unwrap().then(() => {
                setIsLoading(false)
                toast.success("Araç başarıyla eklendi.")
+               navigate("/panel")
           }).catch(() => {
                setIsLoading(false)
                toast.error("Bir hata oluştu.")

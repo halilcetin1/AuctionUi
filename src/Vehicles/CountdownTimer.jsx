@@ -1,23 +1,16 @@
 import { useState, useEffect } from "react";
 
-
-function CountdownTimer({endTime}) {
-    const time=endTime;
+function CountdownTimer({ endTime }) {
     const [countTime, setCountTime] = useState("");
 
     useEffect(() => {
-        const hesaplaKalanSüre = () => {
-        
-            const endTime = new Date(time)
-            const utcToLocal = new Date(endTime.toLocaleString("en-US", { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone })).getTime();
+        const calculateRemainingTime = () => {
+            const targetTime = new Date(endTime + "Z").getTime();
+            const now = new Date().getTime();
 
-           
-            
-            const now = new Date().getTime(); 
+            const diffMs = targetTime - now;
 
-            const farkMs = utcToLocal - now; 
-            
-            if (farkMs <= 0) {
+            if (diffMs <= 0) {
                 setCountTime("Süre doldu!");
                 return;
             }
@@ -26,29 +19,29 @@ function CountdownTimer({endTime}) {
             const minute = 60 * second;
             const hour = 60 * minute;
             const day = 24 * hour;
-            const moonth = 30 * day; 
+            const month = 30 * day;
 
-            if (farkMs >= moonth) {
-                const kalanAy = Math.floor(farkMs / moonth);
-                setCountTime(`${kalanAy} ay kaldı`);
+            if (diffMs >= month) {
+                const remainingMonths = Math.floor(diffMs / month);
+                setCountTime(`${remainingMonths} ay kaldı`);
             } else {
-                const kalanGun = Math.floor(farkMs / day);
-                const kalanSaat = Math.floor((farkMs % day) / hour);
-                const kalanDakika = Math.floor((farkMs % hour) / minute);
-                const kalanSaniye = Math.floor((farkMs % minute) / second);
+                const remainingDays = Math.floor(diffMs / day);
+                const remainingHours = Math.floor((diffMs % day) / hour);
+                const remainingMinutes = Math.floor((diffMs % hour) / minute);
+                const remainingSeconds = Math.floor((diffMs % minute) / second);
                 setCountTime(
-                    `  ${kalanGun} gün ${kalanSaat} saat ${kalanDakika} dakika ${kalanSaniye} saniye kaldı`
+                    `${remainingDays} gün ${remainingHours} saat ${remainingMinutes} dakika ${remainingSeconds} saniye kaldı`
                 );
             }
         };
 
-        hesaplaKalanSüre(); // 
-        const interval = setInterval(hesaplaKalanSüre, 1000); //
+        calculateRemainingTime();
+        const interval = setInterval(calculateRemainingTime, 1000);
 
-        return () => clearInterval(interval); 
-    }, [time]);
+        return () => clearInterval(interval);
+    }, [endTime]);
 
-    return  <p className="w-16 j h-full">{countTime}</p>;
+    return <p className="w-16 j h-full">{countTime}</p>;
 }
 
 export default CountdownTimer;
