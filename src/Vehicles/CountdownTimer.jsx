@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function CountdownTimer({ endTime }) {
+function CountdownTimer({ endTime ,style}) {
     const [countTime, setCountTime] = useState("");
 
     useEffect(() => {
@@ -30,7 +30,7 @@ function CountdownTimer({ endTime }) {
                 const remainingMinutes = Math.floor((diffMs % hour) / minute);
                 const remainingSeconds = Math.floor((diffMs % minute) / second);
                 setCountTime(
-                    `${remainingDays} gün ${remainingHours} saat ${remainingMinutes} dakika ${remainingSeconds} saniye kaldı`
+                    ` ${remainingDays} gün ${remainingHours} saat ${remainingMinutes} dakika ${remainingSeconds} saniye kaldı`
                 );
             }
         };
@@ -41,7 +41,7 @@ function CountdownTimer({ endTime }) {
         return () => clearInterval(interval);
     }, [endTime]);
 
-    return <p className="w-16 j h-full">{countTime}</p>;
+    return <p className={`${style} `}>{countTime}</p>;
 }
 
 export default CountdownTimer;

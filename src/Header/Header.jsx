@@ -13,7 +13,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { logOut } from '../Redux/Slices/userSlice';
-
+import logo from '../assets/logo.png'
 const Header = () => {
     const navigate=useNavigate()
   const [nav, setNav] = useState(false);
@@ -45,9 +45,10 @@ useEffect(()=>{
       <nav className=" w-full   bg-white border-gray-200 px-4 lg:px-6 py-2.5   ">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-lg">
           <Link to="/" className="flex items-center">
-            <span className="self-center text-xl font-semibold whitespace-nowrap ">
+            {/* <span className="self-center text-xl font-semibold whitespace-nowrap ">
               AuctionApp
-            </span>
+            </span> */}
+            <img src={logo} alt={logo} width={70} height={20} className='h-14'/>
           </Link>
 
           <div
@@ -99,7 +100,9 @@ useEffect(()=>{
             </ul>
       {
         isLogin ? <div>
-           <p className='text-red'>{userInfo}
+           <p className='text-red' onClick={()=>{
+            navigate("/my-account")
+           }}>Hesabım
            </p>
         </div> :<div className='flex gap-1'>
 

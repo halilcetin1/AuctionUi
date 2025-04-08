@@ -16,12 +16,13 @@ const {vehicleId}=vehicle;
           <img src={vehicle.image} alt="" className="w-full h-full "/>
           </div>
              <div className=" w-1/2 relative  max-md:w-full">
+             <p className="   h-9" > <CountdownTimer endTime={vehicle.endTime} style={"h-full text-white bg-red-500 w-full"}/></p>
              <p className="font-bold">{vehicle.brandAndModel}</p>
                <p>{vehicle.engineCapacity}  | {vehicle.millage} KM | {vehicle.color}</p>
             
-<p className="absolute top-0 right-0 rounded-md max-md:bottom-0" id="countertimer-container"> <CountdownTimer endTime={vehicle.endTime}/></p>
 
-{/* <button className="flex items-center justify-center bg-white border border-solid border-blue-500 text-blue-500 w-2/3 rounded-2xl h-10 mb-3 cursor-pointer">Detay <RightIcon/></button> */}
+
+
 <div className="  flex  justify-around  max-sm:w-full">
 
     

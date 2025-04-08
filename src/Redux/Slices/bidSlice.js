@@ -62,7 +62,15 @@ export const createBidAuto=createAsyncThunk("api/bid/createbidauto",async(model,
 
 })
 
+export const getBidsByUserId=createAsyncThunk("api/bids/getBidsByUserId",async(userId,{rejectWithValue})=>{
+try {
+     const res= await axios.get(`${baseURL}/bid/getBidByUserId/${userId}`)
+     return res.data
+} catch (error) {
+     return rejectWithValue(error);
+}
 
+})
 
 
 export const getBidsSlice = createSlice({

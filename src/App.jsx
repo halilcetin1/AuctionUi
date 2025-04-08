@@ -2,24 +2,25 @@
 
 
 import './App.css'
-import Register from './Components/Register'
+import Register from './Auth/Register'
 
 import { Route, Routes } from 'react-router-dom'
 import Header from './Header/Header'
-import Login from './Components/Login'
+import Login from './Auth/Login'
 import VehicleDetails from './Vehicles/VehicleDetails'
 import Payment from './Payment/Payment'
 import CeheckPay from './Payment/CheckPay'
 
 import ConfirmedPay from './Payment/ConfimedPay'
 import { ToastContainer } from 'react-toastify'
-import EmailConfirmed from './Components/EmailConfirmed'
+import EmailConfirmed from './Auth/EmailConfirmed'
 
 import Home from './Home/Home'
 import PanelHome from './Panel/PanelHome'
 import AddCar from './Panel/AddCar'
 import DeleteVehicle from './Panel/DeleteVehicle'
-
+import MyAccountInfos from './Auth/MyAccountInfos'
+import MyBids from './Bid/MyBids'
 
 function App() {
 
@@ -47,6 +48,8 @@ function App() {
         <Route path='/panel' element={<PanelHome />}></Route>
         <Route path='/panel/addcar' element={<AddCar />}></Route>
         <Route path='/panel/deletevehicles' element={<DeleteVehicle />}></Route>
+        <Route path='/my-account' element={<MyAccountInfos />}></Route>
+        <Route path='/bids/my-bids' element={<MyBids />}></Route>
 
       </Routes>
       <ToastContainer />
