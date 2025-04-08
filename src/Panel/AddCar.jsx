@@ -119,14 +119,14 @@ if(isLoading){
                          }} />
                </div><div className="mb-2  w-1/3 max-sm:w-2/3">
                     <label htmlFor="base-input" className="block mb-2 text-sm font-medium  ">Model Yılı</label>
-                    <input type='text' required id="base-input" value={manifacturingYear}
+                    <input type='number' required id="base-input" value={manifacturingYear}
                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  " onChange={(e) => {
                               setManifacturingYear(e.target.value)
 
                          }} />
                </div><div className="mb-2  w-1/3 max-sm:w-2/3">
                     <label htmlFor="base-input" className="block mb-2 text-sm font-medium  ">Başlangıç Fiyatı</label>
-                    <input type="text" required id="base-input" value={price}
+                    <input type="number" required id="base-input" value={price}
                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  " onChange={(e) => { setPrice(e.target.value) }} />
                </div><div className="mb-2  w-1/3 max-sm:w-2/3">
                     <label htmlFor="base-input" className="block mb-2 text-sm font-medium  ">Plaka</label>
@@ -137,19 +137,19 @@ if(isLoading){
                </div>
                <div className="mb-2  w-1/3 max-sm:w-2/3">
                     <label htmlFor="base-input" className="block mb-2 text-sm font-medium  ">Teklif Ücreti</label>
-                    <input type="text" required id="base-input" value={auctionPrice}
+                    <input type="number" required id="base-input" value={auctionPrice}
                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  " onChange={(e) => {
                               setAuctionPrice(e.target.value)
                          }} />
                </div>
                <div className="mb-2  w-1/3 max-sm:w-2/3">
                     <label htmlFor="base-input" className="block mb-2 text-sm font-medium  ">Kilometre</label>
-                    <input type="text" required id="base-input" value={millage}
+                    <input type="number" required id="base-input" value={millage}
                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  " onChange={(e) => { setMillage(e.target.value) }} />
                </div>
                <div className="mb-2  w-1/3 max-sm:w-2/3">
                     <label htmlFor="base-input" className="block mb-2 text-sm font-medium  ">Motor kapasitesi</label>
-                    <input type="text" required id="base-input" value={engineCapacity}
+                    <input type="number" required id="base-input" value={engineCapacity}
                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  " onChange={(e) => { setEngineCapacity(e.target.value) }} />
 
 
