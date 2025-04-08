@@ -6,6 +6,7 @@ import { FaRegCircleCheck } from "react-icons/fa6";
  function Bid(props) {
  const b=props;
  const bid=b.bid
+ console.log(props);
  
  const {userId}=props;
      const amount=bid.bidAmount;
@@ -15,7 +16,7 @@ import { FaRegCircleCheck } from "react-icons/fa6";
 
      
 
-     const date=new Date(bid.bidDate)
+     const date=new Date(bid.bidDate+"Z")
 
 
      
@@ -24,7 +25,7 @@ import { FaRegCircleCheck } from "react-icons/fa6";
     <div className="p-3">
 
 <div className="border border-gray-300 rounded-lg flex items-center justify-between p-7 relative ">
-<p className="flex items-center gap-2 font-bold text-2xl">Aktif <FaRegCircleCheck className="text-green-500"/></p>
+<p className="flex items-center gap-2 font-bold text-2xl">{bid.fullName} <FaRegCircleCheck className="text-green-500"/></p>
 <p className="font-bold text-2xl">{convert} TL</p>
 
 
