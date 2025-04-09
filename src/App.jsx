@@ -21,6 +21,7 @@ import AddCar from './Panel/AddCar'
 import DeleteVehicle from './Panel/DeleteVehicle'
 import MyAccountInfos from './Auth/MyAccountInfos'
 import MyBids from './Bid/MyBids'
+import Footer from './Components/Footer'
 
 function App() {
 
@@ -53,6 +54,7 @@ function App() {
 
       </Routes>
       <ToastContainer />
+      <Footer/>
     </>
 
   )
