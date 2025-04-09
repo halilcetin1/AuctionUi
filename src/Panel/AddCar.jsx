@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 import { jwtDecode } from 'jwt-decode';
@@ -27,7 +27,14 @@ export default function AddCar() {
 
      const dispatch = useDispatch()
      const navigate=useNavigate();
+useEffect(()=>{
+const token=localStorage.getItem("token");
+const {role}=jwtDecode(token);
+if(role!="Adminstrator") {
+     (navigate("/"))
+} 
 
+},[])
      const handleFileChange = (e) => {
           if (e.target.files) {
                const files = Array.from(e.target.files);

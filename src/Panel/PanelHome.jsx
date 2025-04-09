@@ -26,7 +26,7 @@ if(role!="Adminstrator") {
     <div className="flex-col  flex items-center justify-center w-full h-full ">
      <p>Admin Paneli</p>
 <div className="flex flex-wrap gap-8 items-center justify-center">
-<div className="w-3xs border border-gray-300 h-64 rounded-3xl flex items-center justify-center p-1.5 gap-2 cursor-pointer  " onClick={()=>{
+<div className="w-2xs border border-gray-300 h-64 rounded-3xl flex items-center justify-center p-1.5 gap-2 cursor-pointer  " onClick={()=>{
      navigate("/panel/addcar")
 }}>
 
