@@ -24,20 +24,23 @@ function VehicleDetails() {
   const dispatch = useDispatch()
   const navigate=useNavigate()
  
-  const { token } = useSelector((state) => state.user);
+  const user = useSelector((state) => state.user);
   useEffect(() => {
 
 
     dispatch(getVehicleById(vehicleId)).unwrap().then((e) => {
       setData(e)
+   console.log(e);
    
 
 
     })
-   console.log(token);
-   
-    if(vehicleId&&token){
-      const {nameid}=jwtDecode(token)
+  
+
+    if(vehicleId && user.token!=null){
+ 
+      
+      const {nameid}=jwtDecode(user.token)
 
 
       
@@ -45,18 +48,14 @@ function VehicleDetails() {
         vehicleID: vehicleId,
         userId: nameid
       }
- console.log(model);
+
  
       dispatch(checkPaymentStatus(model)).unwrap().then((e)=>{
-        console.log("rte",e.isSuccess);
 setIssuccess(e.isSuccess) 
-        console.log("başarılı");
+       
         
         
       }).catch((w)=>{
-        console.log(w)
-        ;
-        console.log("başarısız.");
         
         
       })
@@ -67,8 +66,8 @@ setIssuccess(e.isSuccess)
   }, [vehicleId])
 
 const handlecreateBid=()=>{
-  if(bidAmount!=0&& token!=null){
-    const {nameid}=jwtDecode(token)
+  if(bidAmount!=0&& user.token!=null){
+    const {nameid}=jwtDecode(user.token)
     
     const model={
       bidAmount: bidAmount,
@@ -186,7 +185,7 @@ dispatch(createBid(model))
 
       }
       {
-        token != null ? <div className="flex w-full  justify-center p-3.5 gap-6 max-sm:flex-col">
+        user.token != null ? <div className="flex w-full  justify-center p-3.5 gap-6 max-sm:flex-col">
         
         </div> : <p>teklif yapmak için <a href="/login" className="text-blue-400">giriş</a> yapınız.</p>
       }

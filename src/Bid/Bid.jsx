@@ -6,7 +6,7 @@ import { FaRegCircleCheck } from "react-icons/fa6";
  function Bid(props) {
  const b=props;
  const bid=b.bid
- console.log(props);
+
  
  const {userId}=props;
      const amount=bid.bidAmount;

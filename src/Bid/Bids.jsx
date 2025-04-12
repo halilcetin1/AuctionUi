@@ -28,8 +28,8 @@ const connection=useRef(null);
   const [bidAmount, setBidAmount] = useState(0)
   const [timeStatus,setTimeStatus]=useState(true);
   const navigate = useNavigate()
-  const { token } = useSelector((state) => state.user)
-  console.log(props,"props");
+  const  user  = useSelector((state) => state.user)
+ 
   
 
 const [userId,setUserId]=useState();
@@ -54,7 +54,8 @@ startSignalR()
 
 
     })
-    const { nameid } = jwtDecode(token);
+    if(user.token==null){return}
+    const { nameid } = jwtDecode(user.token);
     const model = {
       vehicleID: vehicleId,
       userId: nameid
@@ -82,25 +83,22 @@ const startSignalR=()=>{
   connection.current.on("GetData",(e)=>{
    setData(e)
     
-console.log("gelen data",e);
+
 
 
     
   })
 
   connection.current.onclose(() => {
-    console.log('Bağlantı kesildi. Yeniden bağlanılıyor...');
 });
 
 
 connection.current.onreconnecting(() => {
-  console.log('Yeniden bağlanılıyor...');
 });
 
 
 
 connection.current.onreconnected(() => {
-  console.log('Bağlandı');
 });
 
 
@@ -108,10 +106,8 @@ connection.current.onreconnected(() => {
 connection.current.start()
 .then(() => {
 
-    console.log('SignalR Connected!');
 })
 .catch(err => {
-    console.error('SignalR Connection Error: ', err);
     
 });
 
@@ -127,7 +123,7 @@ try {
 
 } catch (error) {
 
-  console.log(error);
+ 
   
 }
 
@@ -137,8 +133,8 @@ try {
 
 
   const handlecreateBid = async() => {
-    if (bidAmount != 0 && token != null) {
-      const { nameid } = jwtDecode(token)
+    if (bidAmount != 0 && user != null) {
+      const { nameid } = jwtDecode(user.token)
       const model = {
         bidAmount: bidAmount,
         userId: nameid,
@@ -158,7 +154,7 @@ toast.success("teklif yapıldı",{})
 updateBids()
       }).catch((e)=>{
 toast.error("teklif yapılmadı !")
-console.log(e);
+
 
       })
 
@@ -172,10 +168,10 @@ console.log(e);
   }
 
   const handleCreateAutobid=()=>{
-    if(!token){
+    if(!user){
       return
     }
-    const { nameid } = jwtDecode(token)
+    const { nameid } = jwtDecode(user.token)
 const model={
 userId: nameid,
 vehicleId: vehicleId
@@ -192,8 +188,11 @@ vehicleId: vehicleId
 
   return (
     <div className="w-full">
-     
-     {
+    
+ {
+  user.token==null ? "": <>
+  
+  {
       timeStatus ?  <div>
 
       {
@@ -220,6 +219,14 @@ vehicleId: vehicleId
       }
     </div>: <div className="text-center">Aracın süresi dolmuştur.</div>
      }
+
+  
+  </>
+ }
+
+
+
+
       {
         data == null || data.length == 0 ? <p className="w-full flex justify-center gap-4 items-center  text-center border border-gray-300 p-2"><FaCircleInfo className="text-2xl text-gray-500" /> Bu araç için aktif bir teklif yok !</p> : <div>
           {
@@ -227,6 +234,7 @@ vehicleId: vehicleId
               <Bid key={index} bid={b} userId={userId} />
             ))
           }
+
         </div>
       }
 
