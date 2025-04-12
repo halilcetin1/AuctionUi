@@ -11,7 +11,7 @@ import Bids from "../Bid/Bids";
 import { checkPaymentStatus } from "../Redux/Slices/paymentSlice";
 
 import { jwtDecode } from "jwt-decode";
-
+import Loading from '../Components/Loading'
 import { createBid } from "../Redux/Slices/bidSlice";
 
 
@@ -64,6 +64,10 @@ setIssuccess(e.isSuccess)
 
 
   }, [vehicleId])
+
+  if(!data){
+    return (<Loading/>)
+  }
 
 const handlecreateBid=()=>{
   if(bidAmount!=0&& user.token!=null){
